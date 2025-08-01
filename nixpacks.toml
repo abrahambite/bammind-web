@@ -1,0 +1,10 @@
+# nixpacks.toml
+
+[phases.setup]
+nixPkgs = ["python311"] # Usa Python versión 3.11
+
+[phases.install]
+cmds = ["python -m pip install -r requirements.txt"] # Instala las librerías
+
+[start]
+cmd = "python -m gunicorn app:app" # El comando para iniciar
