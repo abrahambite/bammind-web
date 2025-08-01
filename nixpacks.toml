@@ -1,10 +1,13 @@
-# nixpacks.toml
+# nixpacks.toml (Versión a prueba de balas)
 
 [phases.setup]
-nixPkgs = ["python311"] # Usa Python versión 3.11
+# Le decimos explícitamente que instale python Y la herramienta pip
+nixPkgs = ["python311", "python311Packages.pip"]
 
 [phases.install]
-cmds = ["python -m pip install -r requirements.txt"] # Instala las librerías
+# Ahora que estamos seguros de que pip existe, ejecutamos el comando de instalación
+cmds = ["python -m pip install -r requirements.txt"]
 
 [start]
-cmd = "python -m gunicorn app:app" # El comando para iniciar
+# El comando para iniciar la aplicación (este no cambia)
+cmd = "python -m gunicorn app:app"
